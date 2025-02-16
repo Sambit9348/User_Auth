@@ -11,10 +11,12 @@ import { AiOutlineSwapRight } from "react-icons/ai";
 import { MdMarkEmailRead } from "react-icons/md";
 
 const Register = () => {
+  // State variables to store input values
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  // Function to handle form submission and send data to backend
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
@@ -46,6 +48,7 @@ const Register = () => {
     <div className='registerPage flex'>
       <ToastContainer />
       <div className='container flex'>
+        {/* Left Section - Video and Text */}
         <div className="videoDiv">
           <video src={video} autoPlay muted loop></video>
           <div className="textDiv">
@@ -60,12 +63,14 @@ const Register = () => {
           </div>
         </div>
 
+        {/* Right Section - Registration Form */}
         <div className="formDiv flex">
           <div className="headerDiv">
             <img src={logo} alt="Logo" />
             <h3>Let Us Know You!</h3>
           </div>
           <form onSubmit={handleRegister} className='form grid'>
+            {/* Username Input */}
             <div className="inputDiv">
               <label htmlFor="username">Username</label>
               <div className="input flex">
@@ -74,6 +79,7 @@ const Register = () => {
               </div>
             </div>
 
+            {/* Email Input */}
             <div className="inputDiv">
               <label htmlFor="email">Email</label>
               <div className="input flex">
@@ -82,6 +88,7 @@ const Register = () => {
               </div>
             </div>
 
+            {/* Password Input */}
             <div className="inputDiv">
               <label htmlFor="password">Password</label>
               <div className="input flex">
@@ -89,10 +96,14 @@ const Register = () => {
                 <input type="password" id='password' placeholder='Enter Password' required value={password} onChange={(e) => setPassword(e.target.value)} />
               </div>
             </div>
+
+            {/* Submit Button */}
             <button type='submit' className='btn flex'>
               <span>Register</span>
               <AiOutlineSwapRight className='icon' />
             </button>
+            
+            {/* Forgot Password Link */}
             <span className='forgotPassword'>
               Forgot your password? <a href="">Click Here</a>
             </span>

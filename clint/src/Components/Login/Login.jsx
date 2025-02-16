@@ -10,9 +10,11 @@ import { AiOutlineSwapRight } from "react-icons/ai";
 import { MdMarkEmailRead } from "react-icons/md";
 
 const Login = () => {
+  // State variables to store input values
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // Function to handle login form submission
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -40,6 +42,7 @@ const Login = () => {
     <div className='loginPage flex'>
       <ToastContainer />
       <div className='container flex'>
+        {/* Left Section - Video and Promotional Text */}
         <div className="videoDiv">
             <video src={video} autoPlay muted loop></video>
             <div className="textDiv">
@@ -54,12 +57,15 @@ const Login = () => {
             </div>
         </div>
 
+        {/* Right Section - Login Form */}
         <div className="formDiv flex">
             <div className="headerDiv">
                 <img src={logo} alt="Logo" />
                 <h3>Welcome Back!</h3>
             </div>
             <form onSubmit={handleLogin} className='form grid'>
+            <span className='showMessage'>Login Status will go here</span>
+                {/* Email Input */}
                 <div className="inputDiv">
                     <label htmlFor="email">Email</label>
                     <div className="input flex">
@@ -74,6 +80,7 @@ const Login = () => {
                         />
                     </div>
                 </div>
+                {/* Password Input */}
                 <div className="inputDiv">
                     <label htmlFor="password">Password</label>
                     <div className="input flex">
@@ -88,10 +95,12 @@ const Login = () => {
                         />
                     </div>
                 </div>
+                {/* Submit Button */}
                 <button type='submit' className='btn flex'>
                     <span>Login</span>
                     <AiOutlineSwapRight className='icon' />
                 </button>
+                {/* Forgot Password Link */}
                 <span className='forgotPassword'>
                     Forgot your password? <a href="">Click Here</a>
                 </span>
